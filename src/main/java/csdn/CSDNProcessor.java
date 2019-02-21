@@ -1,4 +1,5 @@
-import csdn.CSDNProcessor;
+package csdn;
+
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -8,30 +9,31 @@ import us.codecraft.webmagic.scheduler.PriorityScheduler;
 
 /**
  * Author: LeesangHyuk
- * Date: 2019/2/21 10:49
- * Description:爬虫模版
+ * Date: 2019/2/21 14:21
+ * Description:
  */
-public class TemplateProcessor implements PageProcessor {
+public class CSDNProcessor implements PageProcessor {
 
     private Site site;
     private static int count=0;
 
-    public static final String URL_LIST = "";
-    public static final String URL_POST = "";
+//    public static final String URL_LIST = "";
+    public static final String URL_POST = "https://blog.csdn.net/No_Game_No_Life_/article/details/[0-9]{8}";
 
     public void process(Page page) {
         if (page.getUrl().regex(URL_POST).match()) {
-            page.putField("A",page.getHtml().xpath(""));
-            if (page.getResultItems().get("A") == null) {
+            page.putField("title",page.getHtml().xpath("//*[@id=\"mainBox\"]/main/div[1]/div/div/div[1]/h1/text()"));
+            if (page.getResultItems().get("title") == null) {
                 page.setSkip(true);
-            }else {
+            }else{
                 count++;
             }
             page.putField("url",page.getUrl().toString());
+            page.putField("time",page.getHtml().xpath("//*[@id=\"mainBox\"]/main/div[1]/div/div/div[2]/div[1]/span[1]/text()"));
 
         }else{
             page.addTargetRequests(page.getHtml().links().regex(URL_POST).all(), 1000);
-            page.addTargetRequests(page.getHtml().links().regex(URL_LIST).all(), 1);
+//            page.addTargetRequests(page.getHtml().links().regex(URL_LIST).all(), 1);
         }
     }
 
@@ -54,7 +56,7 @@ public class TemplateProcessor implements PageProcessor {
                 .setScheduler(new PriorityScheduler())
                 .addPipeline(new ConsolePipeline())
                 .addUrl("https://blog.csdn.net/No_Game_No_Life_/")
-                .thread(5).run();
+                .thread(2).run();
         endTime = System.currentTimeMillis();
         System.out.println("爬取结束，耗时约" + ((endTime - startTime) / 1000) + "秒，抓取了"+count+"条记录");
 
