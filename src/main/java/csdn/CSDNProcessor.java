@@ -4,8 +4,12 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.pipeline.ConsolePipeline;
+import us.codecraft.webmagic.pipeline.FilePipeline;
 import us.codecraft.webmagic.processor.PageProcessor;
 import us.codecraft.webmagic.scheduler.PriorityScheduler;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Author: LeesangHyuk
@@ -33,7 +37,7 @@ public class CSDNProcessor implements PageProcessor {
 
         }else{
             page.addTargetRequests(page.getHtml().links().regex(URL_POST).all(), 1000);
-//            page.addTargetRequests(page.getHtml().links().regex(URL_LIST).all(), 1);
+            page.addTargetRequests(getListLink(), 1);
         }
     }
 
@@ -48,13 +52,21 @@ public class CSDNProcessor implements PageProcessor {
         return site;
     }
 
+    public List<String> getListLink(){
+        List<String> links=new ArrayList<String>();
+        for (int i = 2; i < 13; i++) {
+            links.add("https://blog.csdn.net/No_Game_No_Life_/article/list/"+i);
+        }
+        return links;
+    }
+
     public static void main(String[] args) {
         long startTime, endTime;
         System.out.println("开始爬取...");
         startTime = System.currentTimeMillis();
         Spider.create(new CSDNProcessor())
                 .setScheduler(new PriorityScheduler())
-                .addPipeline(new ConsolePipeline())
+                .addPipeline(new FilePipeline("D:\\英雄时刻"))
                 .addUrl("https://blog.csdn.net/No_Game_No_Life_/")
                 .thread(2).run();
         endTime = System.currentTimeMillis();
