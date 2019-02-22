@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="080f0382-a533-48df-91c6-81e704b83b26" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/porn/PornProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/TemplateProcessor.class" afterPath="$PROJECT_DIR$/target/classes/TemplateProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/csdn/CSDNProcessor.class" afterPath="$PROJECT_DIR$/target/classes/csdn/CSDNProcessor.class" />
+    <list default="true" id="080f0382-a533-48df-91c6-81e704b83b26" name="Default" comment="完善csdn以及Porn">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/TemplateProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/TemplateProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/csdn/CSDNProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/csdn/CSDNProcessor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -471,12 +466,20 @@
       <workItem from="1550715264351" duration="9733000" />
       <workItem from="1550747344553" duration="1219000" />
       <workItem from="1550809583952" duration="4824000" />
-      <workItem from="1550822722352" duration="38000" />
+      <workItem from="1550822722352" duration="155000" />
     </task>
+    <task id="LOCAL-00001" summary="完善csdn以及Porn">
+      <created>1550822812255</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1550822812256</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39306000" />
+    <option name="totallyTimeSpent" value="39423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="0" width="1938" height="1077" extended-state="0" />
@@ -516,6 +519,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="完善csdn以及Porn" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善csdn以及Porn" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
