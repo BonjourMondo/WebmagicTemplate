@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Author: LeesangHyuk
  * Date: 2019/2/21 14:21
- * Description:
+ * Description:CSDN反爬虫规则，同一页面在短时间访问多次会造成访问量不增加
  */
 public class CSDNProcessor implements PageProcessor {
 
